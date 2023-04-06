@@ -52,8 +52,8 @@ const App = () => {
                 }
                 personService
                   .update(personObject.id, personObject)
-                  .then(response => {
-                    setPersons(persons.filter((person)=>person.id !==personObject.id).concat(response.data))
+                  .then(request => {
+                    setPersons(persons.filter((person)=>person.id !==personObject.id).concat(personObject))
                     setNewName('')
                     setNewNumber('')
                     setActionMessage (`Updated ${newName}`)
@@ -139,6 +139,7 @@ const App = () => {
 
   return (
     <div>
+      {/* <h1>THIS IS THE FRONT I'M CURRENTLY EDITING</h1> */}
       <h2>Phonebook</h2>
       <Success message={actionMessage}/>
       <Error message={errorMessage}/>
