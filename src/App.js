@@ -79,8 +79,17 @@ const App = () => {
           setTimeout(()=> {
             setActionMessage(null)
           }, 3000)
-
         })
+        .catch((error) => {
+          console.log("catching validation error in add person", error)
+          console.log(error.response.data.error)
+          setErrorMessage(error.response.data.error)
+          setTimeout(()=>{
+            setErrorMessage(null)
+          }, 5000)          
+        })
+
+
       }
   }
 
